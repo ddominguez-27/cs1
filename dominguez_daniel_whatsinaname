@@ -1,32 +1,42 @@
-#flower pot
+#flower pot (in progress)
+
+#imports random variable
+import random   
 
 
-import random
 
-def request_name():
-    name = input("what is ur name \n ")
 
-def reverse_string(name): #done
+#reverses a string
+def reverse_string(name): 
+    #starts with an empty string and turns the name into a list
     reversed_string = ""
     list_name = list(name)
-    while True:
+    #for loop to add the last character from the list to the string and pops it from the list
+    while True:    #turn into a for loop
         reversed_string += list_name[-1]
         list_name.pop()
         if list_name == []:
             break
+    #Prints
     print(reversed_string)
 
 
 
+# Function that counts the total vowels
+def vowel_counter(name):    
 
-def vowel_counter(name):
+    # Turns the character list lowercase (ask to see which is more efficient)
+
+    # Create list of vowels to check from, and sets the vowel counter to 0
     vowels = ["a", "e", "i", "o", "u"]
     vowel_counter = 0
+    # For loop that goes through the list and checks for vowels
     for i in name:
         if i in vowels:
             vowel_counter += 1
+    # Print final count
     print(vowel_counter)
-def consonant_counter(name):
+def consonant_counter(name):     #not done yet
     vowels = ["a", "e", "i", "o", "u"]
     consonant_counter = 0
     for i in name:
@@ -34,7 +44,12 @@ def consonant_counter(name):
             continue
         consonant_counter += 1
     print(consonant_counter)
+
+# Function that creates counts of each indivisual vowels
 def vowel_tracker(name):
+    # Creates indivisual lists
+    # NOTE: create parallel arrays for more efficient code
+    character_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q"]
     a = 0
     e = 0
     i = 0
@@ -94,7 +109,7 @@ def return_name(name, place):
     for i in list_string:
         if i == " ":
             split_list.append(next_word)
-            next_word = ""
+            next_word = "a"
         else:
             next_word += i
     if next_word:
