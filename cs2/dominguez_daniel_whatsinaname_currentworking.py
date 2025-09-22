@@ -173,6 +173,7 @@ def main():
     while True:
         name = input("what is ur name (press enter to use last entered name)\n")
         print("one hamburger please") #new comment and more
+        print("one hamburger please")
         if name == "":
             name = last_name_instance
         last_name_instance = name
