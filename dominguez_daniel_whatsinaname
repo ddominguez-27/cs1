@@ -1,42 +1,26 @@
-#flower pot (in progress)
-
-#imports random variable
-import random   
+#flower pot
 
 
+import random
 
+def request_name():
+    name = input("what is ur name \n ")
 
-#reverses a string
-def reverse_string(name): 
-    #starts with an empty string and turns the name into a list
+def reverse_string(name): #done
     reversed_string = ""
     list_name = list(name)
-    #for loop to add the last character from the list to the string and pops it from the list
-    while True:    #turn into a for loop
+    while True:
         reversed_string += list_name[-1]
         list_name.pop()
-        if list_name == []:
+        if not list_name:
             break
-    #Prints
     print(reversed_string)
 
 
 
-# Function that counts the total vowels
-def vowel_counter(name):    
 
-    # Turns the character list lowercase (ask to see which is more efficient)
 
-    # Create list of vowels to check from, and sets the vowel counter to 0
-    vowels = ["a", "e", "i", "o", "u"]
-    vowel_counter = 0
-    # For loop that goes through the list and checks for vowels
-    for i in name:
-        if i in vowels:
-            vowel_counter += 1
-    # Print final count
-    print(vowel_counter)
-def consonant_counter(name):     #not done yet
+def consonant_counter(name):
     vowels = ["a", "e", "i", "o", "u"]
     consonant_counter = 0
     for i in name:
@@ -44,12 +28,7 @@ def consonant_counter(name):     #not done yet
             continue
         consonant_counter += 1
     print(consonant_counter)
-
-# Function that creates counts of each indivisual vowels
 def vowel_tracker(name):
-    # Creates indivisual lists
-    # NOTE: create parallel arrays for more efficient code
-    character_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q"]
     a = 0
     e = 0
     i = 0
@@ -102,6 +81,14 @@ def string_upper(name):
             string_uppered += char
     print(string_uppered)
 
+def vowel_counter(name):
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+    vowel_counter = 0
+    for i in name:
+        if i in vowels:
+            vowel_counter += 1
+    print(vowel_counter)
+
 def return_name(name, place):
     list_string = list(name)
     next_word = ""
@@ -109,22 +96,26 @@ def return_name(name, place):
     for i in list_string:
         if i == " ":
             split_list.append(next_word)
-            next_word = "a"
+            next_word = ""
         else:
             next_word += i
     if next_word:
         split_list.append(next_word)
     middle_names = ""
-    if place == 1:
+    title_list = ["Mr.", "Mrs.", "Dr.", "Ms.", "Esq.", "Sir"]
+    if split_list[0] in title_list:
+        split_list.pop(0)
+    
+    if place == "1":
         print(split_list[0])
-    elif place == 2:
+    elif place == "2":
         print(split_list[-1])
-    elif place == 3:
+    elif place == "3":
         for i in split_list[1:-1]:
             middle_names += f"{i} "
         print(middle_names)
     else:
-        pass
+        print("Not one of the options :(")
 def tf_hyphen(name):
     hyphen_check = False
     list_string = list(name)
@@ -159,6 +150,7 @@ def tf_palindrome(name):
         print(True)
     else:
         print(False)
+
 def random_name(name):
     list_string = list(name)
     new_string = []
@@ -178,7 +170,7 @@ def initials(name):
     print(initials)
 
     
-#test
+
 
 
 
@@ -186,8 +178,7 @@ def initials(name):
 
 def main():
     while True:
-        name = input("what is ur name (press enter to use last entered name)\n")
-        
+        name = input("what is your name (press enter to use last entered name)\n")
         if name == "":
             name = last_name_instance
         last_name_instance = name
@@ -202,7 +193,8 @@ def main():
 8) Check if your name is a palindrome
 9) Randomize your name (fun!)
 10) Get the initials of your name
-11) Count the instances of each vowel''')
+11) Count the instances of each vowel
+''')
         if choice == "1":
             reverse_string(name) #done
         elif choice == "2":
@@ -213,7 +205,9 @@ def main():
             position_choice = input('''What would you like? (enter number)
 1) Return only your first name
 2) Return only your last name
-3) Return all your middle names''')
+3) Return all your middle names
+''')
+            
             return_name(name, position_choice)
         elif choice == "5":
             vowel_counter(name)  #done
