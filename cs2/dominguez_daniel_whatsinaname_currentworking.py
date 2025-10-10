@@ -1,4 +1,9 @@
 #flower pot
+#name: Daniel Dominguez
+#Input your name, and select from a menu of options to maniupulate and check your name in vaious names
+#bonus:
+#bugs: consonant tracker is not tracking the consonantes - it needs to be not in the function
+#log: 1.0 DRD
 
 
 import random
@@ -24,7 +29,7 @@ def consonant_counter(name):
     vowels = ["a", "e", "i", "o", "u"]
     consonant_counter = 0
     for i in name:
-        if i in vowels:
+        if i not in vowels:
             continue
         consonant_counter += 1
     print(consonant_counter)
@@ -73,7 +78,7 @@ def string_upper(name):
     for i in range(len(new_list)):
         char = new_list[i]
         int_value = ord(char)
-        if int_value > 97 and int_value <123:
+        if int_value > 97 and int_value < 123:
             int_value -= 32
             char_2 = chr(int_value)
             string_uppered += char_2
@@ -105,7 +110,7 @@ def return_name(name, place):
     title_list = ["Mr.", "Mrs.", "Dr.", "Ms.", "Esq.", "Sir"]
     if split_list[0] in title_list:
         split_list.pop(0)
-    
+        
     if place == "1":
         print(split_list[0])
     elif place == "2":
