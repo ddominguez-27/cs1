@@ -17,12 +17,14 @@ def size_tracker(l, h, w):
         size_tracked = 0
     return(size_tracked)
 
-
+#https://www.geeksforgeeks.org/python/difference-between-except-and-except-exception-as-e/ 
+#used this source
 def data_conversion(l, h, w, zip1, zip2):
     try:
         return(float(l), float(w), float(h), int(zip1), int(zip2))
-    except ValueError:
-        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0, 0, 0, 0, 0
 def zone_counter(zip):
     if 1 <= zip <= 6999:
         return 1
