@@ -23,6 +23,7 @@ def data_conversion(l, h, w, zip1, zip2):
         return(float(l), float(w), float(h), int(zip1), int(zip2))
     except Exception:
         return 0, 0, 0, 0, 0
+    
 def zone_counter(zip):
     if 1 <= zip <= 6999:
         return 1
@@ -47,18 +48,25 @@ def main():
     while True:
         data = input("please insert data (Length, Height, Width, Origin_Zipcode, Destiation_Zipcode)")
         data = list(data)
-        data_list = ["", "", "", "", ""]
+        data_list = ["", "", "", "", "", ""]
         data_list_counter = 0
-        for i in data:
+        for i in data:    #checking if an item is a comma if not add it to the data list
             if i == ",":
-                data_list_counter += 1
+                if data_list_counter < 5:
+                    data_list_counter += 1
                 pass
             else:
+                print(data_list_counter)
                 data_list[data_list_counter] += i
+            print(data_list)
+        
         for i in range(len(data_list)):
             data_list[i] = data_list[i].strip()
         print(data_list)
         l, h, w, zip1, zip2, = data_conversion(data_list[0], data_list[1], data_list[2], data_list[3], data_list[4])
+        if ((l or h or w or zip1 or zip2) == 0) or data_list[5]:
+            print("Input does not conform to possible values")
+            continue
         print(size_tracker(l, w, h))
 
         zone1 = zone_counter(zip1)
