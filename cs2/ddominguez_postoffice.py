@@ -56,24 +56,21 @@ def main():
                     data_list_counter += 1
                 pass
             else:
-                print(data_list_counter)
                 data_list[data_list_counter] += i
-            print(data_list)
         
         for i in range(len(data_list)):
             data_list[i] = data_list[i].strip()
-        print(data_list)
         l, h, w, zip1, zip2, = data_conversion(data_list[0], data_list[1], data_list[2], data_list[3], data_list[4])
         if ((l or h or w or zip1 or zip2) == 0) or data_list[5]:
             print("Input does not conform to possible values")
             continue
-        print(size_tracker(l, w, h))
 
         zone1 = zone_counter(zip1)
         zone2 = zone_counter(zip2)
         zone_dif = abs(zone1 - zone2)
 
-        correct_money = money(size_tracker(l, w, h), zone_dif)
+        correct_money = str(money(size_tracker(l, w, h), zone_dif))
+
         
         correct_money = correct_money.lstrip('0')
         print(correct_money)
