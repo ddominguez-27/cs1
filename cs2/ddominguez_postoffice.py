@@ -1,4 +1,7 @@
 print("welcome")
+
+
+#checks the values and assigns a number to it
 def size_tracker(l, h, w):
     size_tracked = 0
     if (3.5 <= l <= 4.25) and (3.5 <= h <= 6) and (.007 <= w <= .016):
@@ -50,26 +53,29 @@ def money(dm, zd):
 #main function
 def main():
     while True:
+        #takes in data and splits it up at the commas
         data = input("please insert data (Length, Height, Width, Origin_Zipcode, Destiation_Zipcode)")
         data = list(data)
         data_list = ["", "", "", "", "", ""]
         data_list_counter = 0
         for i in data:    #checking if an item is a comma if not add it to the data list
             if i == ",":
-                if data_list_counter < 5:
+                if data_list_counter < 5:   #ensures that
                     data_list_counter += 1
                 pass
             else:
                 data_list[data_list_counter] += i
-        #removes any other zeroes
+        #removes any extra zeroes
         for i in range(len(data_list)):
             data_list[i] = data_list[i].strip()
         
         #converts the variables into their proper data classes
         l, h, w, zip1, zip2, = data_conversion(data_list[0], data_list[1], data_list[2], data_list[3], data_list[4])
 
-        #checks to see if the try accept failed
-        if ((l or h or w or zip1 or zip2) == 0) or data_list[5]:
+        #checks to see if the try accept failed or if the parcel does not conform to the packages list
+
+        size_value = size_tracker(l, w, h)
+        if ((l or h or w or zip1 or zip2 or size_value) == 0) or data_list[5]:
             print("Input does not conform to possible values")
             continue
 
@@ -79,10 +85,10 @@ def main():
 
         #variable that is prepping to format correctly- 
         #size trakcer takes the dimensions and returns a value representing the parcel size
-        #takes the positive difference of the zones
+        #takes the positive difference of the zones with absolute value
         #money function takes the 2 values and turns it into a value
-        #then turns it into a float
-        correct_money = float(money(size_tracker(l, w, h), abs(zone1 - zone2)))
+        #then turns it into a float        
+        correct_money = float(money(size_value, abs(zone1 - zone2)))
 
         #formats the float with 2 decimal points
         correct_money = f"{correct_money:.2f}"
@@ -90,6 +96,7 @@ def main():
         correct_money = correct_money.lstrip("0")
 
         print(correct_money)
+        return(correct_money)
         
 
 
