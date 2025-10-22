@@ -1,7 +1,17 @@
-print("welcome")
+"""
+Author: Daniel Dominguez
+Sources: Mr. Campbell, Assignment sheet
+Description: Returns a value which represents the cost of the price to ship based on parcel dimensions and starting and ending zipcodes
+Bugs: none that i know of
+"""
 
 
 
+
+"""
+
+
+"""
 #checks the values and assigns a number to it
 def size_tracker(l, h, w):
     size_tracked = 0
@@ -61,7 +71,7 @@ def main():
         data_list_counter = 0
         for i in data:    #checking if an item is a comma if not add it to the data list
             if i == ",":
-                if data_list_counter < 5:   #ensures that
+                if data_list_counter < 5:   #ensures that there are not more commans than nesecary
                     data_list_counter += 1
                 pass
             else:
@@ -97,7 +107,6 @@ def main():
         correct_money = correct_money.lstrip("0")
 
         print(correct_money)
-        return(correct_money)
         
 
 
