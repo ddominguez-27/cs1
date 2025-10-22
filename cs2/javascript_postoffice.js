@@ -28,7 +28,7 @@ function size_tracker(l, h, w) {
     return(size_tracked)
     }}
 
-    
+
 //attempts data conversion && if not returns empty values
 function data_conversion(l, h, w, zip1, zip2) {
     try {
@@ -39,21 +39,22 @@ function data_conversion(l, h, w, zip1, zip2) {
 
 //returns a zone value from a zip value
 function zone_counter(zip) {
-    if 1 <= zip <= 6999:
+    switch(zip) {
+    case 1 <= zip <= 6999:
         return 1
-    elif zip <= 19999:
+    case zip <= 19999:
         return 2
-    elif zip <= 35999:
+    case zip <= 35999:
         return 3
-    elif zip <= 62999:
+    case zip <= 62999:
         return 4
-    elif zip <= 84999:
+    case zip <= 84999:
         return 5
-    elif zip <= 99999:
+    case zip <= 99999:
         return 6
-    else:
+    default:
         return 0
-    }
+    }}
     
 //takes in dimensions && zone different && returns a monetary value
 function money(dm, zd):
