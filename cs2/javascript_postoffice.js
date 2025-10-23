@@ -57,17 +57,17 @@ function zone_counter(zip) {
     }}
     
 //takes in dimensions && zone different && returns a monetary value
-function money(dm, zd):
-    parcel_price = [0, .2, .37, .37, .6, 2.95, 3.95]
-    zone_price = [0, .03, .03, .04, .05, .25, .35]
-    price = parcel_price[dm] + (zone_price[dm]*zd)
+function money(dm, zd) {
+    const parcel_price = [0, .2, .37, .37, .6, 2.95, 3.95];
+    const zone_price = [0, .03, .03, .04, .05, .25, .35];
+    let price = parcel_price[dm] + (zone_price[dm]*zd); //fix maybe
     return price
-
+}
 //main function
-function main():
-    while True:
+function main() {
+    while (true) {
         //takes in data && splits it up at the commas
-        data = input("please insert data (Length, Height, Width, Origin_Zipcode, Destiation_Zipcode)")
+        let data = prompt("please insert data (Length, Height, Width, Origin_Zipcode, Destiation_Zipcode)")  //set this to html 
         data = list(data)
         data_list = ["", "", "", "", "", ""]
         data_list_counter = 0
@@ -112,7 +112,7 @@ function main():
         return(correct_money)
         
 
-
+}}
 
 
 main()
