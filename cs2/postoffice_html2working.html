@@ -97,8 +97,8 @@
             size_value = size_tracker(l, w, h)
             if ([l, h, w, zip1, zip2, size_value].includes(false)) {
                 document.getElementById("result").innerText = "Input does not conform to possible values";
-                continue
             }
+            else {
             //converts zip codes into zones
             let zone1 = zone_counter(zip1);
             let zone2 = zone_counter(zip2);
@@ -115,7 +115,7 @@
             //removes the first zero
             //correct_money = correct_money.lstrip("0")
 
-            document.getElementById("result").innerText = correct_money;
+            document.getElementById("result").innerText = correct_money;}
             
 
     }
