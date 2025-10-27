@@ -10,29 +10,30 @@
         let size_tracked = 0
         console.log("sizetracker running!")
         console.log(l, h, w)
-        switch (l, h, w) {
-        case (3.5 <= l <= 4.25) && (3.5 <= h <= 6) && (.007 <= w <= .016):
+        
+        if ((3.5 <= l && l <= 4.25) && (3.5 <= h && h <= 6) && (.007 <= w && w <= .016)) {
             size_tracked = 1;
-            break;
-        case (4.25 <= l <= 6) && (6 <= h <= 11.5) && (.007 <= w <= .016):
+        }
+        else if ((4.25 <= l && l <= 6) && (6 <= h && h <= 11.5) && (.007 <= w && w <= .016)) {
             size_tracked = 2;
-            break;
-        case (3.5 <= l <= 6.125) && (5 <= h <= 11.5) && (.016 <= w <= .25):
+        }
+        else if ((3.5 <= l && l <= 6.125) && (5 <= h && h <= 11.5) && (.016 <= w && w <= .25)){
             size_tracked = 3;
-            break;
-        case (6.125 <= l <= 24) && (11 <= h <= 18) && (.25 <= w <= .5):
+        }
+        else if ((6.125 <= l && l <= 24) && (11 <= h && h <= 18) && (.25 <= w && w <= .5)){
             size_tracked = 4;
-            break;
-        case (l + 2*w +2*h) <= 86:
+        }
+        else if ((l + 2*w +2*h) <= 86){
             size_tracked = 5;
-            break;
-        case (l + 2*w +2*h) <= 130:
+        }
+        else if ((l + 2*w +2*h) <= 130) {
             size_tracked = 6;
-            break;
-        default:
+        }
+        else {
             size_tracked = 0;
+        }
         return(size_tracked)
-        }}
+        }
 
 
     //attempts data conversion && if not returns empty values
@@ -45,22 +46,27 @@
 
     //returns a zone value from a zip value
     function zone_counter(zip) {
-        switch(zip) {
-        case 1 <= zip <= 6999:
+        if (1 <= zip && zip <= 6999){
             return 1
-        case zip <= 19999:
+        }
+        else if (zip && zip <= 19999){
             return 2
-        case zip <= 35999:
+        }
+        else if (zip && zip <= 35999){
             return 3
-        case zip <= 62999:
+        }
+        else if (zip && zip <= 62999){
             return 4
-        case zip <= 84999:
+        }
+        else if (zip && zip <= 84999){
             return 5
-        case zip <= 99999:
-            return 6
-        default:
+        }
+        else if (zip && zip <= 99999){
+            return 6}
+        else{
             return 0
-        }}
+        }
+        }
         
     //takes in dimensions && zone different && returns a monetary value
     function money(dm, zd) {
