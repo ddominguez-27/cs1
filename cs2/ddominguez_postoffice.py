@@ -124,7 +124,7 @@ def main():
         for i in range(len(data_list)):
             data_list[i] = data_list[i].strip()
         #converts the variables into their proper data classes
-        l, h, w, zip1, zip2, = data_conversion(data_list[0], data_list[1], data_list[2], data_list[3], data_list[4])
+        l, h, w, zip1, zip2 = data_conversion(data_list[0], data_list[1], data_list[2], data_list[3], data_list[4])
         
 
         #checks to see if the try accept failed or if the parcel does not conform to the packages list
