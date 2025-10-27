@@ -84,18 +84,18 @@ function main() {
         
         //converts the variables into their proper data classes
         
-        l = data_conversion[0]
+        /*l = data_conversion[0]
         h = data_conversion[1]
         w = data_conversion[2]
         zip1 = data_conversion[3]
-        zip2 = data_conversion[4]
+        zip2 = data_conversion[4]*/
 
 
         //checks to see if the try accept failed or if the parcel does not conform to the packages list
 
         size_value = size_tracker(l, w, h)
-        if ((l or h or w or zip1 or zip2 or size_value) == 0) or data_list[5] {
-            print("Input does not conform to possible values")
+        if ([l, h, w, zip1, zip2, size_value].includes(false) || data_list[5]) {
+            document.getElementById("result").innerText = "Input does not conform to possible values";
             continue
         }
         //converts zip codes into zones
@@ -126,11 +126,11 @@ function main() {
 <h1>Please input your dimensions and your origin zipcode and your destination zipcode</h1>
  
 
-<label for="length">Enter Length (inches)</label><br>
+<label for="length">Enter Length (longest side in inches)</label><br>
 <input type="number" id="length" name="length"><br><br>
-<label for="width">Enter Width (inches)</label><br>
+<label for="width">Enter Width (second longest side in inches)</label><br>
 <input type="number" id="width" name="width"><br><br>
-<label for="height">Enter Height (inches)</label><br>
+<label for="height">Enter Height (shortest side in inches)</label><br>
 <input type="number" id="height" name="height"><br><br>
 <label for="zip1">Enter origin zipcode</label><br>
 <input type="number" id="zip1" name="zip1"><br><br>
