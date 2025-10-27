@@ -95,17 +95,19 @@
         zip2 = data_conversion[4]*/
 
 
-        //checks to see if the try accept failed or if the parcel does not conform to the packages list
-
-        let size_value = size_tracker(l, w, h)
-        console.log(size_value)
-        if ([l, h, w, zip1, zip2, size_value].includes(0)) {
-            document.getElementById("result").innerText = "Input does not conform to possible values";
-        }
-        else {
         //converts zip codes into zones
         let zone1 = zone_counter(zip1);
         let zone2 = zone_counter(zip2);
+
+
+
+        let size_value = size_tracker(l, w, h)
+        console.log(size_value)
+        if ([l, h, w, zip1, zip2, size_value, zone1, zone2].includes(0)) {
+            document.getElementById("result").innerText = "Input does not conform to possible values";
+        }
+        else {
+
 
         //variable that is prepping to format correctly- 
         //size trakcer takes the dimensions && returns a value representing the parcel size
