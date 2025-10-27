@@ -113,7 +113,7 @@
         //size trakcer takes the dimensions && returns a value representing the parcel size
         //takes the positive difference of the zones with absolute value
         //money function takes the 2 values && turns it into a value    
-        let correct_money = (parseInt(size_value, Math.abs(zone1 - zone2), 10)).toFixed(2);
+        let correct_money = money(size_value, Math.abs(zone1 - zone2)).toFixed(2);
 
         //formats the float with 2 decimal points
         //correct_money = f"{correct_money:.2f}";
