@@ -69,53 +69,54 @@
     }
     //main function
     function main() {
+        console.log("Hello, world!");
+    
+        //sets variables based on inputs
+        document.getElementById("result").innerText = "Input does not conform to possible values";
+        let l = document.getElementById("length").value;
+        let h = document.getElementById("height").value;
+        let w = document.getElementById("width").value;
+        let zip1 = document.getElementById("zip1").value;
+        let zip2 = document.getElementById("zip2").value;
+
+
+        //removes any extra zeroes - put off for now
+        //for i in range(len(data_list)):
+        //    data_list[i] = data_list[i].strip()
         
-            //sets variables based on inputs
+        //converts the variables into their proper data classes
+        
+        /*l = data_conversion[0]
+        h = data_conversion[1]
+        w = data_conversion[2]
+        zip1 = data_conversion[3]
+        zip2 = data_conversion[4]*/
+
+
+        //checks to see if the try accept failed or if the parcel does not conform to the packages list
+
+        let size_value = size_tracker(l, w, h)
+        if ([l, h, w, zip1, zip2, size_value].includes(false)) {
             document.getElementById("result").innerText = "Input does not conform to possible values";
-            let l = document.getElementById("length").value;
-            let h = document.getElementById("height").value;
-            let w = document.getElementById("width").value;
-            let zip1 = document.getElementById("zip1").value;
-            let zip2 = document.getElementById("zip2").value;
+        }
+        else {
+        //converts zip codes into zones
+        let zone1 = zone_counter(zip1);
+        let zone2 = zone_counter(zip2);
 
+        //variable that is prepping to format correctly- 
+        //size trakcer takes the dimensions && returns a value representing the parcel size
+        //takes the positive difference of the zones with absolute value
+        //money function takes the 2 values && turns it into a value
+        //then turns it into a float        
+        let correct_money = money(size_value, Math.abs(zone1 - zone2));
 
-            //removes any extra zeroes - put off for now
-            //for i in range(len(data_list)):
-            //    data_list[i] = data_list[i].strip()
-            
-            //converts the variables into their proper data classes
-            
-            /*l = data_conversion[0]
-            h = data_conversion[1]
-            w = data_conversion[2]
-            zip1 = data_conversion[3]
-            zip2 = data_conversion[4]*/
+        //formats the float with 2 decimal points
+        //correct_money = f"{correct_money:.2f}";
+        //removes the first zero
+        //correct_money = correct_money.lstrip("0")
 
-
-            //checks to see if the try accept failed or if the parcel does not conform to the packages list
-
-            size_value = size_tracker(l, w, h)
-            if ([l, h, w, zip1, zip2, size_value].includes(false)) {
-                document.getElementById("result").innerText = "Input does not conform to possible values";
-            }
-            else {
-            //converts zip codes into zones
-            let zone1 = zone_counter(zip1);
-            let zone2 = zone_counter(zip2);
-
-            //variable that is prepping to format correctly- 
-            //size trakcer takes the dimensions && returns a value representing the parcel size
-            //takes the positive difference of the zones with absolute value
-            //money function takes the 2 values && turns it into a value
-            //then turns it into a float        
-            let correct_money = money(size_value, Math.abs(zone1 - zone2));
-
-            //formats the float with 2 decimal points
-            //correct_money = f"{correct_money:.2f}";
-            //removes the first zero
-            //correct_money = correct_money.lstrip("0")
-
-            document.getElementById("result").innerText = correct_money;}
+        document.getElementById("result").innerText = correct_money;}
             
 
     }
