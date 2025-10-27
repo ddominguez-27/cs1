@@ -36,13 +36,6 @@
         }
 
 
-    //attempts data conversion && if not returns empty values
-    function data_conversion(l, h, w, zip1, zip2) {
-        try {
-            return(Number(l), Number(w), Number(h), Number(zip1), Number(zip2));
-        } catch(err) {
-            return 0, 0, 0, 0, 0
-        }}
 
     //returns a zone value from a zip value
     function zone_counter(zip) {
@@ -81,12 +74,11 @@
     
         //sets variables based on inputs
         document.getElementById("result").innerText = "Input does not conform to possible values";
-        let l = document.getElementById("length").value;
-        let h = document.getElementById("height").value;
-        let w = document.getElementById("width").value;
-        let zip1 = document.getElementById("zip1").value;
-        let zip2 = document.getElementById("zip2").value;
-        console.log(l, h, w, zip1, zip2);
+        let l = parseFloat(document.getElementById("length").value);
+        let h = parseFloat(document.getElementById("height").value);
+        let w = parseFloat(document.getElementById("width").value);
+        let zip1 = parseInt(document.getElementById("zip1").value);
+        let zip2 = parseInt(document.getElementById("zip2").value);
         
 
 
