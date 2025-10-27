@@ -95,7 +95,7 @@
             //checks to see if the try accept failed or if the parcel does not conform to the packages list
 
             size_value = size_tracker(l, w, h)
-            if ([l, h, w, zip1, zip2, size_value].includes(false) || data_list[5]) {
+            if ([l, h, w, zip1, zip2, size_value].includes(false)) {
                 document.getElementById("result").innerText = "Input does not conform to possible values";
                 continue
             }
