@@ -8,6 +8,7 @@
     //checks the values & assigns a number to it
     function size_tracker(l, h, w) {
         let size_tracked = 0
+        console.log("sizetracker running!")
         switch (l, h, w) {
         case (3.5 <= l <= 4.25) && (3.5 <= h <= 6) && (.007 <= w <= .016):
             size_tracked = 1;
@@ -78,7 +79,7 @@
         let w = document.getElementById("width").value;
         let zip1 = document.getElementById("zip1").value;
         let zip2 = document.getElementById("zip2").value;
-        console.log(l, h, w);
+        console.log(l, h, w, zip1, zip2);
         
 
 
@@ -98,6 +99,7 @@
         //checks to see if the try accept failed or if the parcel does not conform to the packages list
 
         let size_value = size_tracker(l, w, h)
+        console.log(size_value)
         if ([l, h, w, zip1, zip2, size_value].includes(false)) {
             document.getElementById("result").innerText = "Input does not conform to possible values";
         }
