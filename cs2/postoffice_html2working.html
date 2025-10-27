@@ -99,7 +99,7 @@
 
         let size_value = size_tracker(l, w, h)
         console.log(size_value)
-        if ([l, h, w, zip1, zip2, size_value].includes(false)) {
+        if ([l, h, w, zip1, zip2, size_value].includes(0)) {
             document.getElementById("result").innerText = "Input does not conform to possible values";
         }
         else {
