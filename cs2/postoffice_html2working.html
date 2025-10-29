@@ -5,7 +5,7 @@
 
 
 
-    //checks the values & assigns a number to it
+    //checks the dimension values & assigns a number to it
     function size_tracker(l, h, w) {
         let size_tracked = 0
         console.log("sizetracker running!")
@@ -65,9 +65,11 @@
     function money(dm, zd) {
         const parcel_price = [0, .2, .37, .37, .6, 2.95, 3.95];
         const zone_price = [0, .03, .03, .04, .05, .25, .35];
-        let price = parcel_price[dm] + (zone_price[dm]*zd); //fix maybe
+        let price = parcel_price[dm] + (zone_price[dm]*zd); 
         return price
     }
+
+
     //main function
     function main() {
         console.log("Hello, world!");
@@ -82,17 +84,7 @@
         
 
 
-        //removes any extra zeroes - put off for now
-        //for i in range(len(data_list)):
-        //    data_list[i] = data_list[i].strip()
-        
-        //converts the variables into their proper data classes
-        
-        /*l = data_conversion[0]
-        h = data_conversion[1]
-        w = data_conversion[2]
-        zip1 = data_conversion[3]
-        zip2 = data_conversion[4]*/
+
 
 
         //converts zip codes into zones
@@ -100,7 +92,7 @@
         let zone2 = zone_counter(zip2);
 
 
-
+        //checks to see which packages are unmailable based on the values
         let size_value = size_tracker(l, w, h)
         console.log(size_value)
         if ([l, h, w, zip1, zip2, size_value, zone1, zone2].includes(0)) {
@@ -110,18 +102,14 @@
 
 
         //variable that is prepping to format correctly- 
-        //size trakcer takes the dimensions && returns a value representing the parcel size
         //takes the positive difference of the zones with absolute value
-        //money function takes the 2 values && turns it into a value    
-        let correct_money = money(size_value, Math.abs(zone1 - zone2)).toFixed(2);
-        correct_money = correct_money.replace(/^0+/, '');
-        
-
-
+        //money function takes the 2 values && turns it into a value 
         //formats the float with 2 decimal points
-        //correct_money = f"{correct_money:.2f}";
-        //removes the first zero
-        //correct_money = correct_money.lstrip("0")
+        let correct_money = money(size_value, Math.abs(zone1 - zone2)).toFixed(2);
+        //removes leading zeros
+        correct_money = correct_money.replace(/^0+/, '');
+
+
 
         document.getElementById("result").innerText = correct_money;
         }
