@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<h1>Please select conversions and enter your number</h1>
+ 
+<input type="radio" id="Fahrenheit" name="convert_from" value="Fahrenheit">
+<label for="Fahrenheit">Fahrenheit</label><br>
+<input type="radio" id="css" name="convert_from" value="CSS">
+<label for="css">CSS</label><br>
+<input type="radio" id="javascript" name="convert_from" value="JavaScript">
+<label for="javascript">JavaScript</label>
+
+<input type="radio" id="Fahrenheit" name="convert_to" value="Fahrenheit">
+<label for="Fahrenheit">HTML</label><br>
+<input type="radio" id="css" name="convert_to" value="CSS">
+<label for="css">CSS</label><br>
+<input type="radio" id="javascript" name="convert_to" value="JavaScript">
+<label for="javascript">JavaScript</label>
+
+
+<label for="length">Enter Length (longest side in inches)</label><br>
+<input type="number" id="length" name="length"><br><br>
+<label for="width">Enter Width (second longest side in inches)</label><br>
+<input type="number" id="width" name="width"><br><br>
+<label for="height">Enter Height (shortest side in inches)</label><br>
+<input type="number" id="height" name="height"><br><br>
+<label for="zip1">Enter origin zipcode</label><br>
+<input type="number" id="zip1" name="zip1"><br><br>
+<label for="zip2">Enter destination zipcode</label><br>
+<input type="number" id="zip2" name="zip2"><br><br><br>
+
+
+
+<!-- Button that calls the function (directly taken from Mr. Campbells sample code)--> 
+<button onclick="main()">Calculate Price</button><br>
+
+
+<p id="result"></p>
+</form>
+</body>
+</html>      
