@@ -2,10 +2,20 @@
 <html>
 <head>
 <script>
+    /*Flower Pot:
+    Author: Daniel Dominguez
+    Sources: Mr. Campbell, Assignment sheet
+    Description: creates a web page with input boxes with a button that Returns a value which represents the cost of the price to ship based on parcel dimensions and starting and ending zipcodes 
+    Bugs: none that i know of
+    Challenges: none that i know of
+    */
 
 
-
-    //checks the dimension values & assigns a number to it
+    /*
+    Description: checks the dimension values & assigns a number to it
+    Args: l, h, w (all floats)
+    Returns: size_tracked (int) 
+    */
     function size_tracker(l, h, w) {
         let size_tracked = 0
         console.log("sizetracker running!")
@@ -37,7 +47,11 @@
 
 
 
-    //returns a zone value from a zip value
+    /*
+    Description: returns a zone value from a zip value
+    Args: zip (int)
+    Description: int (0-6)
+    */
     function zone_counter(zip) {
         if (1 <= zip && zip <= 6999){
             return 1
@@ -61,7 +75,11 @@
         }
         }
         
-    //takes in dimensions && zone different && returns a monetary value
+    /*
+    Description: takes in dimensions && zone different && returns a monetary value
+    Args: dm (int), zd (int)
+    Returns price (number/float)
+    */
     function money(dm, zd) {
         const parcel_price = [0, .2, .37, .37, .6, 2.95, 3.95];
         const zone_price = [0, .03, .03, .04, .05, .25, .35];
@@ -71,6 +89,7 @@
 
 
     //main function
+    //no args or returns
     function main() {
         console.log("Hello, world!");
     
