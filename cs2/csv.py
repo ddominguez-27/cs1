@@ -1,3 +1,6 @@
+import csv
+
+
 try:
     with open('titanic.csv', 'r') as file:
         #header = file.readline().strip().split(',')  # Read the header row
