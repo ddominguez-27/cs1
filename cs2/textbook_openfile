@@ -1,0 +1,60 @@
+
+
+def goal_1():
+    pass
+
+
+
+try:
+    with open('titanic.csv', 'r') as file:
+        header = file.readline().strip().split(',')  # Read the header row
+        print(header)        
+        passid_index = header.index('PassengerId')
+        survivability_index = header.index('Survived')  # 0 = no ::: 1 = yes
+        pclass_index = header.index('Pclass')
+        name_index = header.index('Name')
+        sex_index = header.index('Sex')  # Find the index of 'Name' column
+        age_index = header.index('age')  # years
+        sibsp_index = header.index('SibSp')
+        parch_index = header.index('Parch')  # Find the index of 'Name' column
+        ticket_index = header.index('Ticket')
+        fare_index = header.index('Fare')
+        cabin_index = header.index('Cabin')
+        embarked_index = header.index('Embarked')
+        
+
+
+        passid = []
+        survivability = []
+        pclass = []
+        name = []
+        sex = []
+        age = []
+        sibsp = []
+        parch = []
+        ticket = []
+        fare = []
+        cabin = []
+        embarked = []
+       
+        for line in file:
+            row = line.strip().split(',')
+            names.append(row[name_index])
+            names.append(row[name_index])
+            names.append(row[name_index])
+            names.append(row[name_index])
+            names.append(row[name_index])
+            names.append(row[name_index])
+        #print(names)
+except FileNotFoundError:
+    print("Error: 'titanic.csv' file not found.")
+
+
+
+def survival_gender(input):
+    
+
+
+
+
+
