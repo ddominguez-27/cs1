@@ -1,13 +1,29 @@
-#flower pot 
+"""
+Author: Daniel Dominguez
+Sources: Mr. Campbell, Assignment sheet
+Description: Displays a menu that allows user to select a list of different functions to perform onto the inputted name
+Bugs: consonant counter counts nonvowels instead of consonants
+Challenges: n/a
+"""
+
 #consonant tracker is not tracking the consonantes - it needs to be not in the function
 
 
 import random
 
-def request_name():
-    name = input("what is ur name \n ")
 
+'''
+    Def: reverses the string inputted
+
+    Args:
+        name(str): unaltered input name
+    
+    Returns:
+        reversed_string(str): original string reversed front to back
+
+'''
 def reverse_string(name): #done
+
     reversed_string = ""
     list_name = list(name)
     while True:
@@ -20,7 +36,16 @@ def reverse_string(name): #done
 
 
 
+'''
+    Def: counts all of 
 
+    Args:
+        vairable(type): Description of variable.
+    
+    Returns:
+        variable(type): Description of variable.  
+
+'''
 def consonant_counter(name):
     vowels = ["a", "e", "i", "o", "u"]
     consonant_counter = 0
@@ -154,10 +179,9 @@ def tf_palindrome(name):
 
 def random_name(name):
     list_string = list(name)
-    new_string = []
     joined_string = ""
-    while list_string:
-        random_int = random.randint(0, len(list_string))
+    while not(list_string == []):
+        random_int = random.randint(0, (len(list_string)-1))
         joined_string += list_string[random_int]
         list_string.remove(list_string[random_int])
     print(joined_string)

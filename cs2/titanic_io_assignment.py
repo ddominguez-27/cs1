@@ -1,23 +1,43 @@
 def display_data(input):
 
-    input.seek(1)
-    
-
-
-    next(input)
+    input.seek(0)
+    header = next(input).strip()
+    print(header)
     
     counter = 0
 
     for line in input:
  
         counter += 1
-        if counter <= 11:
-            split_line = line.strip().split(',')
-            print(split_line)
+        if counter <= 10:
+            print(line.strip())
     print(f"There are {counter} total passengers")
 
+
+def survival_rate(input):
+
+    input.seek(0)
+    next(input)
+
+
+    pas_total = 0
+    pas_survived = 0
+
+    for line in input:
+        split_line = line.strip().split(',')
+        pas_total += 1
+        if split_line[1] == '1':
+            pas_survived += 1
+    survive_rate = (pas_survived/pas_total)*100
+    print(f"The survival rate was {survive_rate}%")
+
+        
+
+
+
 def class_analysis(input):
-    with open('classanalysis.csv', 'w') as output:
+    with open('classanalysis.csv', 'w') as output:  
+        pass
 
         
         
@@ -29,7 +49,8 @@ def class_analysis(input):
 
 
 def gender_count(input):
-    input.seek(1)
+    input.seek(0)
+
     with open('gendercount.csv', 'w') as output:
 
         next(input)
@@ -54,15 +75,22 @@ def gender_count(input):
             
 
 def fam_survival():
-    
+    pass
 
 def main():
     input = 'titanic.csv'
     with open(input, 'r') as input:
         display_data(input)
-        #gender_count(input)
+        gender_count(input)
 
 main()
+
+
+
+
+
+
+
 
 """
 Titanic Dataset Analysis - Starter Code
