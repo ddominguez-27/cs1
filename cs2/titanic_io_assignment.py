@@ -29,23 +29,10 @@ def survival_rate(input):
         if split_line[1] == '1':
             pas_survived += 1
     survive_rate = (pas_survived/pas_total)*100
-    print(f"The survival rate was {survive_rate}%")
+    print(f"The survival rate was {survive_rate:.2f}%")
 
         
 
-
-
-def class_analysis(input):
-    with open('classanalysis.csv', 'w') as output:  
-        pass
-
-        
-        
-
-
-
-
-        
 
 
 def gender_count(input):
@@ -74,6 +61,43 @@ def gender_count(input):
         output.write(str(male_count) + "," + str(fem_count))
             
 
+
+
+def age_analysis(input):
+    input.seek(0)
+
+    with open('ageanalysis.csv', 'w') as output:
+
+        next(input)
+
+
+        male_count = 0
+        fem_count = 0
+
+        for line in input:
+            split_line = line.strip().split(',')
+       
+            sex = split_line[5]
+           
+            if sex == "male":
+                male_count += 1
+            elif sex == "female":
+                fem_count += 1
+           
+        output.write("Male" + "," + "Female")
+        output.write("\n")
+        output.write(str(male_count) + "," + str(fem_count))
+    
+    
+
+def class_analysis(input):
+    with open('classanalysis.csv', 'w') as output:  
+        pass
+
+        
+        
+
+
 def fam_survival():
     pass
 
@@ -81,6 +105,7 @@ def main():
     input = 'titanic.csv'
     with open(input, 'r') as input:
         display_data(input)
+        survival_rate(input)
         gender_count(input)
 
 main()

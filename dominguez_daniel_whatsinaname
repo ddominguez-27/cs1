@@ -37,7 +37,7 @@ def reverse_string(name): #done
 
 
 '''
-    Def: counts all of 
+    Def: counts all of the consonants in the string
 
     Args:
         vairable(type): Description of variable.
