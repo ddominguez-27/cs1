@@ -7,7 +7,6 @@ Description: Prompts the user to select from different options to analyze a spec
 Bugs: 
 Challenges: none yet (writes to csv, not sure if that counts because its not on the assignment sheet)
 
-Complete the functions below to analyze the Titanic dataset.
 
 """
 
