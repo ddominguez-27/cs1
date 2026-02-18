@@ -2,10 +2,12 @@
 """
 Titanic Dataset Analysis
 Author: Daniel Dominguez
+Date: 1/22/25
 Sources: Mr. Campbell, assignment instruction
 Description: Prompts the user to select from different options to analyze a specific dataset related to the titanic
-Bugs: 
-Challenges: none yet (writes to csv, not sure if that counts because its not on the assignment sheet)
+Completed functions: 1-6s
+Log: 1.1 (?)
+
 
 
 """
