@@ -1,9 +1,9 @@
-#import string
+import string
+
+import pandas as pd
+import plotly.express as px
 
 
-import plotly.express as px 
-
-'''
 fname = input('Enter the file name: ')
 try:
     fhand = open(fname)
@@ -32,18 +32,13 @@ for line in fhand:
             if word not in junk_words:
                 counts[word] += 1
 
-sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1]))
+sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))
 
-
+df = pd.DataFrame(list(counts.items()), columns=['Word', 'Count'])
+df = df.sort_values(by='Count', ascending=False)
 # clearing junk words:
 
 
 print(sorted_counts)
-
-
-
-# Code: https://www.py4e.com/code3/count2.py
-
-'''
-
-#print(string.__file__)
+fig = px.bar(df.head(30), x='Word', y='Count', title='Top 30 Word Counts')
+fig.show()
