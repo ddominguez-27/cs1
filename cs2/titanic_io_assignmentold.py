@@ -8,8 +8,6 @@ Description: Prompts the user to select from different options to analyze a spec
 Completed functions: 1-6s
 Log: 1.1 (?)
 
-
-
 """
 
 
