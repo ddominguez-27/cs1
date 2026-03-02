@@ -1,3 +1,16 @@
+
+
+
+
+
+base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']] #while all the characters look like e (E) there are 3 variations to avoid a line full of empty plots triggering the win detection function
+#the character in the middle of the board is the crylic character  ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
+
+
+
+
+
+
 def print_board(board):
     print(f"""
 
@@ -32,22 +45,49 @@ Player 2 has automatically been assigned 'X'""")
  
 
 def player_move(player):
-    print(f"{player}'s Turn. Please select a grid space to move to as a ")
+    while True:
+        move = input(f"{player}'s Turn. Please select a grid space to move to as a coordinate point (ie 1, 3   or 2, 2)")
+        characters = list(move)
+        counter = 0
+        for i in characters:
+            if i in ["1", "2", "3"]:
+                if counter == 0:
+                    rowpos = int(i) - 1
+                    counter += 1
+                elif counter == 1:
+                    columnpos = int(i) - 1
+                    counter += 1
+                else:
+                    pass
+            else:
+                pass
+        
+        print(rowpos, columnpos)
+
+
 
 def check_win(board):
-    board = [['E','E','E'],['E','E','E'],['E','E','E']]
-    #list of win conditions
-    len(set(board[0][0], board[0][1], board[0][2]))
-    len(set(board[1][0], board[1][1], board[1][2]))
-    len(set(board[2][0], board[2][1], board[2][2]))
-    len(set(board[0][0], board[1][0], board[2][0]))
-    len(set(board[0][1], board[1][1], board[2][1]))
-    len(set(board[0][2], board[1][2], board[2][2]))
-    len(set(board[0][0], board[1][1], board[2][2]))
-    len(set(board[2][0], board[1][1], board[0][2]))
     
-
-
+    base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']]
+    board = base_board
+    #list of win conditions
+    if 1 in [
+    len(set([board[0][0], board[0][1], board[0][2]])),
+    len(set([board[1][0], board[1][1], board[1][2]])),
+    len(set([board[2][0], board[2][1], board[2][2]])),
+    len(set([board[0][0], board[1][0], board[2][0]])),
+    len(set([board[0][1], board[1][1], board[2][1]])),
+    len(set([board[0][2], board[1][2], board[2][2]])),
+    len(set([board[0][0], board[1][1], board[2][2]])),
+    len(set([board[2][0], board[1][1], board[0][2]])),
+    ]:
+        print("a winner has been found")
+    else: 
+        pass
+    
+player_move("Player 1")
+base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']]
+check_win(base_board)
 echeck = input("please input E")
 if echeck == "E":
     print("thats an e (E)")
@@ -58,7 +98,7 @@ elif echeck == "Е":
 choose_players()
 
 base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']] #while all the characters look like e (E) there are 3 variations to avoid a line full of empty plots triggering the win detection function
-#the character in the middle of the board is the crylic character backwards ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
+#the character in the middle of the board is the crylic character  ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
 
 
 
