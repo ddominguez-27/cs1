@@ -44,11 +44,14 @@ Player 2 has automatically been assigned 'X'""")
             print("Please select either 1 or 2 to select character")
  
 
-def player_move(player):
+def player_move(player, board):
     while True:
-        move = input(f"{player}'s Turn. Please select a grid space to move to as a coordinate point (ie 1, 3   or 2, 2)")
+        print_board(board)
+        move = input(f"{player}'s Turn. Please select a grid space to move to as an ordered pair of row, collum (ie   1, 3   or   2, 2)")
         characters = list(move)
         counter = 0
+        rowpos = -1
+        columnpos = -1
         for i in characters:
             if i in ["1", "2", "3"]:
                 if counter == 0:
@@ -61,8 +64,19 @@ def player_move(player):
                     pass
             else:
                 pass
+        if -1 in [rowpos, columnpos]:
+            print("Invalid syntax. Please try again")
+        elif board[rowpos][columnpos] in ['E','Е','Ε']:
+            print(f"Row {rowpos+1}, Column {columnpos+1} selected")
+            return(rowpos, columnpos)
+        else:
+            print("That space is taken, select a different space")
+
+
+
+
         
-        print(rowpos, columnpos)
+        
 
 
 
@@ -85,7 +99,7 @@ def check_win(board):
     else: 
         pass
     
-player_move("Player 1")
+player_move("Player 1", base_board)
 base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']]
 check_win(base_board)
 echeck = input("please input E")
@@ -97,8 +111,8 @@ elif echeck == "Е":
     print("crylic")
 choose_players()
 
-base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']] #while all the characters look like e (E) there are 3 variations to avoid a line full of empty plots triggering the win detection function
-#the character in the middle of the board is the crylic character  ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
+base_board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']] #while all the characters look like e (E) there are 3 variations of nearly identical characters to avoid a line full of empty plots triggering the win detection function
+#the character in the middle of the board is the crylic character ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
 
 
 
