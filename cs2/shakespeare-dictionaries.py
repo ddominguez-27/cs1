@@ -58,13 +58,11 @@ def dictionary_analysis(fname, csvname):
 
     plt.figure(figsize=(12,6))
     plt.bar(top_words, top_counts)
-
-    plt.xticks(rotation=90)
+    plt.xticks(rotation=45)
     plt.xlabel('Word')
     plt.ylabel('Count')
-    plt.title('Top 30 Word Counts')
+    plt.title('Top 30 Words by appearence')
 
-    plt.tight_layout()
     plt.show()
 
 
