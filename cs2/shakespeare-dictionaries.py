@@ -2,8 +2,8 @@
 Shakespeare
 Author: Daniel Dominguez
 Date: 2/19/26
-Sources: Mr. Campbell, assignment instruction, # Code: https://www.py4e.com/code3/count2.py
-Description: Opens 2 files and writes data to excel, and graphs frequency, to run different file
+Sources: Mr. Campbell, assignment instruction, # Code: https://www.py4e.com/code3/count2.py, https://www.geeksforgeeks.org/pandas/bar-plot-in-matplotlib/
+Description: Opens 2 files and writes data to excel, and graphs frequency, to run different file - change the names in the main function
 Completed: 1-5
 Log: 1.0
 
@@ -14,6 +14,16 @@ import string
 import matplotlib.pyplot as plt
 
 
+
+"""
+Args:
+    fname (str) : file name
+    csvname (str) : future csv name
+Return:
+    n/a
+
+Description: opens file, cleans up punctuation and common junk words, and sorts the words into a dictionary, writes the dictionary to a csv then plots the top 30 words by frequency
+"""
 def dictionary_analysis(fname, csvname):
 
 
@@ -29,36 +39,36 @@ def dictionary_analysis(fname, csvname):
         'the', 'and', 'to', 'of', 'a', 'i', 'you', 'my', 'in', 'that', 'it',
         'is', 'not', 'with', 'his', 'this', 'but', 'for', 'as', 'he', 'be',
         'on', 'by', 'or', 'we', 'do', 'so', 'me', 'your', 'have', 'are', 'o', 'all', 'our', 'if', 'at', 'thou'
-    ]
+    ]   #words in the dictionary do not include these junk words
 
     counts = dict()
     for line in fhand:
-        line = line.rstrip()
-        line = line.translate(line.maketrans("", "", string.punctuation))
-        line = line.lower()
-        words = line.split()
+        line = line.rstrip()  #removes new lines at the end of the line
+        line = line.translate(line.maketrans("", "", string.punctuation))   #deletes all punctiation
+        line = line.lower()  #makes every character lowercase
+        words = line.split()   
         for word in words:
-            if word not in counts and word not in junk_words:
+            if word not in counts and word not in junk_words:    #creates a new value in the dictionary and sets the frequency to 1
                 counts[word] = 1
             else:
-                if word not in junk_words:
-                    counts[word] += 1
+                if word not in junk_words:    
+                    counts[word] += 1   #adds 1 to the frequency in the dictionary
 
-    sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))
+    sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))    #sorts the items in the dictionary from highest frequency to lowest frequency
     print(sorted_counts)
     
 
     with open(csvname, 'w') as output:
         output.write("Word,Count\n")
         for word, count in sorted_counts.items():
-            output.write(f"{word},{count}\n")        
+            output.write(f"{word},{count}\n")      #writes word and count frequency to csv  
 
-    top_words = list(sorted_counts.keys())[:30]
-    top_counts = list(sorted_counts.values())[:30]
+    top_words = list(sorted_counts.keys())[:30]    #gets the top 30 words
+    top_counts = list(sorted_counts.values())[:30]   
 
-    plt.figure(figsize=(12,6))
-    plt.bar(top_words, top_counts)
-    plt.xticks(rotation=45)
+    plt.figure(figsize=(12,6))    #12 by 6 frame
+    plt.bar(top_words, top_counts)   #creates bar chart
+    plt.xticks(rotation=45)   #rotates labels to avoid overlap
     plt.xlabel('Word')
     plt.ylabel('Count')
     plt.title('Top 30 Words by appearence')

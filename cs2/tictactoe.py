@@ -23,7 +23,7 @@ def print_board(board):
 
 def choose_players():
     while True:
-        player1 = input("Would you like to play as 'X's or 'O's? (1 for X :: 2 for O)")
+        player1 = input("Would you like to play as 'X's or 'O's? (1 for X  ,  2 for O)")
         if player1 == "1":
             player1 = 'X'
             player2 = 'O'
@@ -44,7 +44,7 @@ Player 2 has automatically been assigned 'X'""")
 def player_move(player, board):
     while True:
         print_board(board)
-        move = input(f"Player {player}'s Turn. Please select a grid space to move to as an ordered pair of row, collum (ie   1, 3   or   2, 2)")
+        move = input(f"Player {player}'s Turn. Please select a grid space to move to as an ordered pair of selected row, collum (ie   1, 3   or   2, 2)")
         characters = list(move)
         counter = 0
         rowpos = -1
@@ -110,7 +110,6 @@ def play_game():
     print("Its a draw!")
 
 
-play_game()
-play_game()
 
-            
+
+play_game()
