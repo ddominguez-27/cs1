@@ -72,7 +72,6 @@ def dictionary_analysis(fname, csvname):
     plt.xlabel('Word')
     plt.ylabel('Count')
     plt.title('Top 30 Words by appearence')
-
     plt.show()
 
 
