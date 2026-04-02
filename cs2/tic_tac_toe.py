@@ -1,5 +1,16 @@
 
+"""
+TicTactoe
+Author: Daniel Dominguez
+Date: 3/23/26
+Sources: 
+Description:  
+Completed:
+Log: 1.0
 
+"""
+
+import requests
 
 
 
@@ -7,6 +18,16 @@
 #the character in the middle of the board is the crylic character  ye (Е) the characters on the edge of the board are the greek letter Epsilon (Ε)
 
 
+"""
+Args:
+    board (list)
+Return:
+    n/a
+
+
+Description:
+    Prints the header, then the first 10 rows of the dataset and then the total number of passengers
+"""
 def print_board(board):
     print(f"""
 
@@ -20,6 +41,17 @@ def print_board(board):
 """)
 
 
+
+"""
+Args:
+    n/a
+Return:
+    player1, player2 (str) 
+
+
+Description:
+    Assigns x and o to both players - allowing player 1 to choose which one they like
+"""
 def choose_players():
     while True:
         player1 = input("Would you like to play as 'X's or 'O's? (1 for X , 2 for O)")
@@ -40,6 +72,16 @@ Player 2 has automatically been assigned 'X'""")
     return(player1, player2)
  
 
+"""
+Args:
+    player (str), board (list)
+Return:
+    board (list)
+
+
+Description:
+    allows player to select a spot on the board, then checks to see if it is available, if it is, it places their icon there, if not, it reruns
+"""
 def player_move(player, board):
     while True:
         print_board(board)
@@ -70,7 +112,16 @@ def player_move(player, board):
             print("That space is taken, select a different space")
             
 
+"""
+Args:
+    board (list)
+Return:
+    boolean
 
+
+Description:
+    allows player to select a spot on the board, then checks to see if it is available, if it is, it places their icon there, if not, it reruns
+"""
 def check_win(board):
 
     #list of win conditions
@@ -89,6 +140,16 @@ def check_win(board):
         return False
 
 
+"""
+Args:
+    n/a
+Return:
+    n/a
+
+
+Description:
+    runs the main tic tac toe function
+"""
 def play_game():
     player1, player2 = choose_players()
     board = [['E','Ε','E'],['Ε','Е','Ε'],['E','Ε','E']]
@@ -110,5 +171,6 @@ def play_game():
 
 
 
-
-play_game()
+while True:
+    play_game()
+    
