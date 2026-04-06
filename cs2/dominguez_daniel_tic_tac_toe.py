@@ -102,9 +102,9 @@ def player_move(player, board):
                     pass
             else:
                 pass
-        if -1 in [rowpos, columnpos]:
+        if -1 in [rowpos, columnpos]:    #checks to see if rowpos or columnpos has its staring value
             print("Invalid syntax. Please try again")
-        elif board[rowpos][columnpos] in ['E','Е','Ε']:
+        elif board[rowpos][columnpos] in ['E','Е','Ε']:   #checks if the board is empty
             print(f"Row {rowpos+1}, Column {columnpos+1} selected")
             board[rowpos][columnpos] = player
             return(board)
