@@ -6,7 +6,7 @@ Date: 1/22/25
 Sources: Mr. Campbell, assignment instruction
 Description: Prompts the user to select from different options to analyze a specific dataset related to the titanic
 Completed functions: 1-6s
-Log: 1.1 (?)
+Log: 1.2
 
 """
 
@@ -38,15 +38,13 @@ def display_data(input):
     print(f"There are {counter} total passengers")
 
 
-"""
-Args:
-    input (file)
-Return:
-    n/a
 
-Description: calculates then prints the overall surival rate
-"""
+
 def survival_rate(input):
+
+#Args: input (file)
+#Return: n/a
+#Description: calculates then prints the overall surival rate
 
     input.seek(0)
     next(input)
