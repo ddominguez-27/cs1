@@ -1,3 +1,11 @@
+"""
+Flask
+Author: Daniel Dominguez
+Date: 5/29/26
+Sources: Form made with AI, Flask code orginially from google classroom, 
+Description:  Python file which runs using Flask allowing html form from templates folder to run on this computer
+Log: 1.0
+"""
 
 from flask import Flask, render_template, request  # imports the necesary 
 import csv
@@ -21,14 +29,14 @@ def submit():
     with open("responses.csv", mode="a", newline="") as file:       #writes to the responses csv using append mode, so the file can accumulate data
         writer = csv.writer(file)
 
-        writer.writerow([q1, q2, q3, q4])        # write one row
+        writer.writerow([q1, q2, q3, q4])        # write one row using the variables of all 4 question inputs
 
 
 
-    return f"Responses submitted!"     #updates the page to confirm submission of response
+    return "Responses submitted!"     #updates the page to confirm submission of response
 
 
 
 
 if __name__ == '__main__':  # Script executed directly?
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)     #
